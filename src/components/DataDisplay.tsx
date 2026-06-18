@@ -1,7 +1,14 @@
 import { useFetch } from "../hooks/useFetch";
 
+export type Post = {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+};
+
 export const DataDisplay = () => {
-  const { data, error, isLoading } = useFetch(
+  const { data, error, isLoading } = useFetch<Post[]>(
     "https://jsonplaceholder.typicode.com/posts",
     "GET",
   );

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-export const useFetch = (
+export const useFetch = <T>(
   URL: string,
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE",
   payload?: Record<string, unknown>,
   skip?: boolean,
 ) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
